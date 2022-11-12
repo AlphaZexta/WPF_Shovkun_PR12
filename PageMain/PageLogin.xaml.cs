@@ -38,13 +38,14 @@ namespace WPF_Shovkun_PR12.PageMain
                 else
                 {
                     switch (userObj.IdRole)
-                    {
+                    {                       
                         case 1:
+                            if (txbLogin = ("admin1") && psbPassword = ("admin1"))
                             MessageBox.Show("Здравствуйте, Администратор " + userObj.name + "!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                             break;
                         case 2:
                             MessageBox.Show("Здравствуйте, Ученик" + userObj.name + "!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                            break;
+                            break;                           
                     }
                 }
             }
@@ -52,6 +53,11 @@ namespace WPF_Shovkun_PR12.PageMain
             {
                 MessageBox.Show("Ошибка" + Ex.Message.ToString() + "Критическая ошибка приложения!!!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+
+        private void Reg_Click(object sender, RoutedEventArgs e)
+        {
+            Appframe.frameMain.Navigate(new PageCreateAcc());
         }
     }
 }
