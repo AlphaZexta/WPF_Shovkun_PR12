@@ -112,6 +112,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageStudent\PageAccountStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PageMain\PageCreateAcc.xaml.cs">
@@ -122,6 +126,9 @@
     </Compile>
     <Compile Include="PageMenuAdmin\PageMenuAdmin.xaml.cs">
       <DependentUpon>PageMenuAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageStudent\PageAccountStudent.xaml.cs">
+      <DependentUpon>PageAccountStudent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

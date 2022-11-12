@@ -28,25 +28,26 @@ namespace WPF_Shovkun_PR12.PageMain
 
         private void btnIn_Click(object sender, RoutedEventArgs e)
         {
+            var userObj = Appconnect.modelOdb.T1.FirstOrDefault(x => x.login == txbLogin.Text && x.password == psbPassword.Password);
+            if (userObj == null)
+            {
+                MessageBox.Show("Такого пользователя нет!", "Ошибка авторизации!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
             try
             {
-                var userObj = Appconnect.modelOdb.T1.FirstOrDefault(x => x.login == txbLogin.Text && x.password == psbPassword.Password);
-                if (userObj == null)
+                switch (userObj.IdRole)
                 {
-                    MessageBox.Show("Такого пользователя нет!", "Ошибка авторизации!", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else
-                {
-                    switch (userObj.IdRole)
-                    {                       
-                        case 1:
-                            if (txbLogin = ("admin1") && psbPassword = ("admin1"))
-                            MessageBox.Show("Здравствуйте, Администратор " + userObj.name + "!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                            break;
-                        case 2:
-                            MessageBox.Show("Здравствуйте, Ученик" + userObj.name + "!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                            break;                           
-                    }
+                    case 1:
+                        if (txbLogin.Text == userObj.login && psbPassword.Password == userObj.password)
+                        MessageBox.Show("Здравствуйте, Администратор " + userObj.name + "!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Appframe.frameMain.Navigate(new PageMenuAdmin.PageMenuAdmin());
+                        break;
+                    case 2:
+                        if (txbLogin.Text == userObj.login && psbPassword.Password == userObj.password)
+                            MessageBox.Show("Здравствуйте, Ученик " + userObj.name + "!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Appframe.frameMain.Navigate(new PageStudent.PageAccountStudent());
+                        break;
                 }
             }
             catch (Exception Ex)

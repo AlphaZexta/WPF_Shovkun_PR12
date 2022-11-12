@@ -13,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF_Shovkun_PR12.PageMenuAdmin
+namespace WPF_Shovkun_PR12.PageStudent
 {
     /// <summary>
-    /// Логика взаимодействия для PageMenuAdmin.xaml
+    /// Логика взаимодействия для PageAccountStudent.xaml
     /// </summary>
-    public partial class PageMenuAdmin : Page
+    public partial class PageAccountStudent : Page
     {
-        public PageMenuAdmin()
+        public PageAccountStudent()
         {
             InitializeComponent();
-        }        
+        }
     }
 }

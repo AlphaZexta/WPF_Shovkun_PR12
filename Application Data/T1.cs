@@ -17,6 +17,7 @@ namespace WPF_Shovkun_PR12.Application_Data
         public int id { get; set; }
         public string login { get; set; }
         public string password { get; set; }
+        public string Password { get; internal set; }
         public string name { get; set; }
         public int IdRole { get; set; }
     }
